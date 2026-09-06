@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="মিষ্টি মুহূর্ত - Cookies, cakes and homemade chocolates.">
+<title>মিষ্টি মুহূর্ত | Sweetness Made With Love</title>
+
+<style>
+:root{
+  --bg:#fffaf7;
+  --card:#ffffff;
+  --text:#2b2020;
+  --muted:#786b68;
+  --primary:#8f3f5f;
+  --primary-dark:#6e2945;
+  --accent:#f2c6a0;
+  --cream:#fff0e7;
+  --gold:#d59b4a;
+  --border:#eaded8;
+  --shadow:0 18px 50px rgba(73,35,29,.10);
+  --radius:24px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.6;
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+.header{
+  position:sticky;top:0;z-index:1000;
+  background:rgba(255,250,247,.88);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(234,222,216,.75);
+}
+.nav{
+  max-width:1180px;margin:auto;padding:16px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.logo{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.5px}
+.logo-mark{
+  width:42px;height:42px;border-radius:14px;
+  display:grid;place-items:center;background:var(--primary);color:white;
+  box-shadow:0 8px 20px rgba(143,63,95,.25);font-size:21px;
+}
+.logo span{font-size:20px}
+.nav-links{display:flex;gap:26px;color:#554747;font-weight:650}
+.nav-links a:hover{color:var(--primary)}
+.cart-btn{
+  border:0;background:var(--text);color:#fff;padding:11px 16px;
+  border-radius:14px;font-weight:800;display:flex;gap:8px;align-items:center;
+}
+.cart-count{
+  min-width:22px;height:22px;border-radius:99px;background:var(--accent);
+  color:var(--text);display:grid;place-items:center;font-size:12px;
+}
+.menu-btn{display:none;border:0;background:transparent;font-size:25px}
+
+.hero{
+  max-width:1180px;margin:0 auto;padding:72px 22px 58px;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;
+}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;background:var(--cream);
+  color:var(--primary);padding:8px 13px;border-radius:99px;font-size:13px;font-weight:850;
+  margin-bottom:18px;
+}
+.hero h1{
+  font-family:Georgia,serif;font-size:clamp(48px,7vw,82px);
+  line-height:.98;letter-spacing:-3px;margin-bottom:22px;
+}
+.hero h1 em{color:var(--primary);font-style:normal}
+.hero p{max-width:570px;color:var(--muted);font-size:18px;margin-bottom:28px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  border:0;border-radius:15px;padding:14px 20px;font-weight:850;
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 12px 25px rgba(143,63,95,.22)}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.btn-light{background:#fff;border:1px solid var(--border)}
+.hero-photo{
+  min-height:500px;border-radius:38px;overflow:hidden;position:relative;
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.15)),
+    url("https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=1000&q=85") center/cover;
+  box-shadow:var(--shadow);
+}
+.hero-card{
+  position:absolute;left:22px;bottom:22px;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);padding:16px 18px;border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.12);
+}
+.hero-card strong{display:block;font-size:16px}
+.hero-card small{color:var(--muted)}
+
+.section{max-width:1180px;margin:auto;padding:70px 22px}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:28px}
+.section-head h2{font-family:Georgia,serif;font-size:42px;letter-spacing:-1.5px}
+.section-head p{color:var(--muted);max-width:500px}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.category{
+  border:1px solid var(--border);background:var(--card);border-radius:var(--radius);
+  padding:24px;display:flex;align-items:center;gap:17px;box-shadow:0 8px 25px rgba(73,35,29,.05);
+  transition:.2s;
+}
+.category:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.category-icon{
+  width:58px;height:58px;border-radius:18px;background:var(--cream);
+  display:grid;place-items:center;font-size:29px;
+}
+.category h3{font-size:18px}.category p{font-size:13px;color:var(--muted)}
+
+.shop-bar{
+  display:flex;gap:12px;align-items:center;justify-content:space-between;
+  margin-bottom:25px;flex-wrap:wrap;
+}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filter{
+  border:1px solid var(--border);background:#fff;padding:9px 14px;border-radius:99px;
+  color:#5f5350;font-weight:750;
+}
+.filter.active,.filter:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.search{
+  border:1px solid var(--border);background:#fff;border-radius:14px;padding:11px 14px;
+  min-width:230px;outline:none;
+}
+.search:focus{border-color:var(--primary)}
+
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.product{
+  background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;
+  box-shadow:0 8px 28px rgba(73,35,29,.055);transition:.2s;
+}
+.product:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.product-img{height:240px;background-size:cover;background-position:center;position:relative}
+.tag{
+  position:absolute;top:13px;left:13px;background:#fff;padding:6px 10px;border-radius:99px;
+  font-size:11px;font-weight:900;color:var(--primary);
+}
+.product-body{padding:18px}
+.product-body h3{font-family:Georgia,serif;font-size:22px}
+.product-body p{font-size:13px;color:var(--muted);min-height:42px;margin:5px 0 14px}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.price{font-weight:900;font-size:18px}
+.add{
+  border:0;background:var(--text);color:white;border-radius:12px;padding:10px 13px;font-weight:800;
+}
+.add:hover{background:var(--primary)}
+
+.story{
+  background:var(--text);color:#fff;border-radius:34px;padding:52px;
+  display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center;
+}
+.story h2{font-family:Georgia,serif;font-size:46px;line-height:1.05;margin-bottom:16px}
+.story p{color:#d8cecb}
+.story-points{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:25px}
+.point{padding:15px;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:rgba(255,255,255,.04)}
+.point strong{display:block}.point span{font-size:12px;color:#bdb0ac}
+.story-img{
+  min-height:360px;border-radius:25px;
+  background:url("https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=900&q=85") center/cover;
+}
+
+.contact{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+}
+.info-card,.contact-form{background:#fff;border:1px solid var(--border);border-radius:24px;padding:28px}
+.info-card h3,.contact-form h3{font-family:Georgia,serif;font-size:28px;margin-bottom:12px}
+.info-row{display:flex;gap:13px;margin:18px 0}
+.info-icon{width:42px;height:42px;background:var(--cream);border-radius:13px;display:grid;place-items:center}
+.info-row small{display:block;color:var(--muted)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{margin-bottom:12px}
+.field label{display:block;font-size:12px;font-weight:800;margin-bottom:5px}
+.field input,.field textarea{
+  width:100%;border:1px solid var(--border);border-radius:12px;padding:12px;outline:none;
+}
+.field textarea{min-height:105px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:var(--primary)}
+
+.footer{background:#241a1a;color:#fff;margin-top:50px}
+.footer-inner{max-width:1180px;margin:auto;padding:35px 22px;display:flex;justify-content:space-between;gap:20px}
+.footer p{color:#b9aeab;font-size:13px}
+.social{display:flex;gap:10px}.social a{padding:8px 11px;border:1px solid #493c3a;border-radius:10px;color:#ddd}
+
+.overlay{
+  position:fixed;inset:0;background:rgba(23,13,13,.52);z-index:2000;
+  display:none;align-items:center;justify-content:center;padding:18px;
+}
+.overlay.show{display:flex}
+.modal{
+  width:min(680px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:26px;
+  padding:25px;box-shadow:0 30px 80px rgba(0,0,0,.3);
+}
+.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.modal-head h2{font-family:Georgia,serif;font-size:30px}
+.close{border:0;background:#f5eeee;border-radius:11px;width:38px;height:38px;font-size:20px}
+.cart-items{display:grid;gap:10px;margin-bottom:18px}
+.cart-item{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;border-bottom:1px solid var(--border);padding:12px 0}
+.cart-item small{color:var(--muted)}
+.qty{display:flex;align-items:center;gap:7px}.qty button{border:1px solid var(--border);background:#fff;width:28px;height:28px;border-radius:8px}
+.remove{border:0;background:transparent;color:#a43e55}
+.total{display:flex;justify-content:space-between;font-size:20px;font-weight:900;padding:15px 0}
+.checkout-form{border-top:1px solid var(--border);padding-top:18px}
+.empty{text-align:center;color:var(--muted);padding:25px}
+
+.toast{
+  position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);
+  background:#241a1a;color:#fff;padding:12px 17px;border-radius:13px;z-index:3000;
+  opacity:0;pointer-events:none;transition:.25s;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media(max-width:850px){
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .hero{grid-template-columns:1fr;padding-top:45px}
+  .hero-photo{min-height:380px}
+  .categories,.products{grid-template-columns:1fr 1fr}
+  .story,.contact{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .hero h1{font-size:50px}
+  .categories,.products{grid-template-columns:1fr}
+  .section-head{display:block}
+  .section-head h2{font-size:35px;margin-bottom:8px}
+  .story{padding:30px 22px}
+  .story h2{font-size:36px}
+  .story-points,.form-grid{grid-template-columns:1fr}
+  .hero-photo{min-height:330px}
+  .search{width:100%;min-width:0}
+  .footer-inner{display:block}.social{margin-top:15px}
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <nav class="nav">
+    <a href="#home" class="logo">
+      <div class="logo-mark">🍰</div>
+      <span>মিষ্টি মুহূর্ত</span>
+    </a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#shop">Shop</a>
+      <a href="#story">Our Story</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <button class="cart-btn" onclick="openCart()">
+      🛒 Cart <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <button class="menu-btn" onclick="toggleMobile()">☰</button>
+  </nav>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div>
+      <span class="badge">✨ Freshly baked • Homemade with love</span>
+      <h1>Little bites of <em>happiness.</em></h1>
+      <p>
+        Welcome to মিষ্টি মুহূর্ত — a cozy home bakery making delicious cakes,
+        crunchy cookies and handmade chocolates for your sweetest moments.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#shop">Explore Treats →</a>
+        <a class="btn btn-light" href="#contact">Contact Us</a>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <div class="hero-card">
+        <strong>Made fresh for you 💕</strong>
+        <small>Owner: Diya • Custom orders available</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div>
+        <h2>What are you craving?</h2>
+        <p>Choose your favourite homemade treat and make your day a little sweeter.</p>
+      </div>
+    </div>
+
+    <div class="categories">
+      <a class="category" href="#shop" onclick="setCategory('cake')">
+        <div class="category-icon">🎂</div>
+        <div><h3>Cakes</h3><p>Birthday & celebration cakes</p></div>
+      </a>
+      <a class="category" href="#shop" onclick="setCategory('cookie')">
+        <div class="category-icon">🍪</div>
+        <div><h3>Cookies</h3><p>Crunchy, buttery & fresh</p></div>
+      </a>
+      <a class="category" href="#shop" onclick="setCategory('chocolate')">
+        <div class="category-icon">🍫</div>
+        <div><h3>Chocolates</h3><p>Handmade chocolate treats</p></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" id="shop">
+    <div class="section-head">
+      <div>
+        <h2>Our sweet collection</h2>
+        <p>Freshly prepared treats for birthdays, gifts, parties or simply because you deserve one.</p>
+      </div>
+    </div>
+
+    <div class="shop-bar">
+      <div class="filters">
+        <button class="filter active" data-filter="all" onclick="setCategory('all')">All</button>
+        <button class="filter" data-filter="cake" onclick="setCategory('cake')">Cakes</button>
+        <button class="filter" data-filter="cookie" onclick="setCategory('cookie')">Cookies</button>
+        <button class="filter" data-filter="chocolate" onclick="setCategory('chocolate')">Chocolates</button>
+      </div>
+      <input class="search" id="search" type="search" placeholder="Search treats..." oninput="renderProducts()">
+    </div>
+
+    <div class="products" id="products"></div>
+  </section>
+
+  <section class="section" id="story">
+    <div class="story">
+      <div>
+        <span class="badge">🤎 Our little bakery</span>
+        <h2>Homemade taste, made for happy memories.</h2>
+        <p>
+          At মিষ্টি মুহূর্ত, every treat is prepared with care. From soft celebration
+          cakes to irresistible cookies and handmade chocolates, we focus on flavour,
+          freshness and beautiful presentation.
+        </p>
+        <div class="story-points">
+          <div class="point"><strong>100% Homemade</strong><span>Prepared with care</span></div>
+          <div class="point"><strong>Fresh Ingredients</strong><span>Quality comes first</span></div>
+          <div class="point"><strong>Custom Orders</strong><span>Your idea, our bake</span></div>
+          <div class="point"><strong>Made With Love</strong><span>For every occasion</span></div>
+        </div>
+      </div>
+      <div class="story-img"></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-head">
+      <div>
+        <h2>Let's make something sweet.</h2>
+        <p>Have a custom cake or bulk order in mind? Send us your requirements.</p>
+      </div>
+    </div>
+
+    <div class="contact">
+      <div class="info-card">
+        <h3>Visit & connect</h3>
+        <div class="info-row">
+          <div class="info-icon">📍</div>
+          <div><strong>Our Bakery</strong><small>online deliver only</small></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📞</div>
+          <div><strong>Phone / WhatsApp</strong><small>+91 XXXXXXXXXX</small></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">🕐</div>
+          <div><strong>Delivery hour</strong><small>10:00 AM – 8:00 PM</small></div>
+        </div>
+        <div class="info-row">
+          <div class="info-icon">📸</div>
+          <div><strong>Instagram</strong><small>@mishti_muhurto</small></div>
+        </div>
+      </div>
+
+      <form class="contact-form" onsubmit="sendCustomMessage(event)">
+        <h3>Custom order</h3>
+        <div class="form-grid">
+          <div class="field"><label>Your name</label><input id="cName" required></div>
+          <div class="field"><label>Phone</label><input id="cPhone" required></div>
+        </div>
+        <div class="field"><label>What would you like?</label><input id="cItem" placeholder="Birthday cake, chocolate box..." required></div>
+        <div class="field"><label>Message</label><textarea id="cMessage" placeholder="Tell us flavour, size, quantity, date, design, etc."></textarea></div>
+        <button class="btn btn-primary" type="submit">Send on WhatsApp 💬</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <strong>🍰 মিষ্টি মুহূর্ত</strong><br><span style="color:#b9aeab;font-size:13px">Owner: Diya</span>
+      <p>Sweetness made with love by Diya.</p>
+    </div>
+    <div class="social">
+      <a href="#" onclick="return false">Instagram</a>
+      <a href="#" onclick="return false">Facebook</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<div class="overlay" id="cartOverlay" onclick="closeOnOverlay(event)">
+  <div class="modal">
+    <div class="modal-head">
+      <h2>Your Cart 🛒</h2>
+      <button class="close" onclick="closeCart()">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="total">
+      <span>Total</span>
+      <span id="cartTotal">₹0</span>
+    </div>
+
+    <div class="checkout-form">
+      <h3 style="font-family:Georgia,serif;margin-bottom:12px">Customer details</h3>
+      <div class="form-grid">
+        <div class="field"><label>Name</label><input id="orderName" placeholder="Your name"></div>
+        <div class="field"><label>Phone</label><input id="orderPhone" placeholder="Your phone"></div>
+      </div>
+      <div class="field"><label>Delivery / pickup note</label><textarea id="orderNote" placeholder="Address, preferred date, pickup time..."></textarea></div>
+      <button class="btn btn-primary" style="width:100%" onclick="placeOrder()">Place Order on WhatsApp 💬</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">Added to cart</div>
+
+<script>
+/* ===========================
+   মিষ্টি মুহূর্ত PRODUCT DATA
+   Edit products, prices and images here.
+   =========================== */
+
+const WHATSAPP_NUMBER = "9332009518"; // <-- CHANGE THIS TO YOUR REAL WHATSAPP NUMBER
+
+const products = [
+  {
+    id:1, name:"Classic Chocolate Cake", category:"cake", price:650,
+    description:"Rich chocolate sponge with creamy chocolate frosting.",
+    image:"https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=85",
+    tag:"Best Seller"
+  },
+  {
+    id:2, name:"Strawberry Cream Cake", category:"cake", price:750,
+    description:"Soft vanilla sponge, strawberry cream and fresh berries.",
+    image:"https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=700&q=85",
+    tag:"Fresh"
+  },
+  {
+    id:3, name:"Red Velvet Cake", category:"cake", price:850,
+    description:"Velvety cocoa sponge with smooth cream cheese frosting.",
+    image:"https://images.unsplash.com/photo-1586788224331-947f68671cf0?auto=format&fit=crop&w=700&q=85",
+    tag:"Popular"
+  },
+  {
+    id:4, name:"Choco Chip Cookies", category:"cookie", price:220,
+    description:"Buttery homemade cookies loaded with chocolate chips.",
+    image:"https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=700&q=85",
+    tag:"6 Pieces"
+  },
+  {
+    id:5, name:"Double Chocolate Cookies", category:"cookie", price:250,
+    description:"Soft-centred chocolate cookies for serious chocoholics.",
+    image:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=700&q=85",
+    tag:"8 Pieces"
+  },
+  {
+    id:6, name:"Chocolate Brownie", category:"cookie", price:180,
+    description:"Fudgy Chocolate Brownie — Rich, soft, gooey, and loaded with irresistible chocolate flavour.",
+    image:"chocolatebrownie.jpeg",
+    tag:"Fresh"
+  },
+  {
+    id:7, name:"Homemade Chocolate Box", category:"chocolate", price:99,
+    description:"A beautiful assorted box of handmade chocolate bites, 10 pice.",
+    image:"Chocolatebox.jpeg",
+    tag:"Gift Box"
+  },
+  {
+    id:8, name:"Dark Chocolate Truffles", category:"chocolate", price:349,
+    description:"Silky dark chocolate truffles finished with cocoa.",
+    image:"https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&w=700&q=85",
+    tag:"Premium"
+  },
+  {
+    id:9, name:"Diced Chocolate", category:"chocolate", price:10,
+    description:"Milk, dark and nutty chocolate bites in one box.",
+    image:"dicedchocolate.jpeg",
+    tag:"Giftable"
+  }
+];
+
+let activeCategory = "all";
+let cart = JSON.parse(localStorage.getItem("etwenty_cart") || "[]");
+
+function money(n){
+  return "₹" + Number(n).toLocaleString("en-IN");
+}
+
+function renderProducts(){
+  const q = document.getElementById("search").value.toLowerCase().trim();
+  const box = document.getElementById("products");
+
+  const list = products.filter(p => {
+    const categoryMatch = activeCategory === "all" || p.category === activeCategory;
+    const searchMatch = !q || (p.name + " " + p.description).toLowerCase().includes(q);
+    return categoryMatch && searchMatch;
+  });
+
+  if(!list.length){
+    box.innerHTML = '<div class="empty" style="grid-column:1/-1">No treats found. Try another search.</div>';
+    return;
+  }
+
+  box.innerHTML = list.map(p => `
+    <article class="product">
+      <div class="product-img" style="background-image:url('${p.image}')">
+        <span class="tag">${p.tag}</span>
+      </div>
+      <div class="product-body">
+        <h3>${p.name}</h3>
+        <p>${p.description}</p>
+        <div class="product-bottom">
+          <span class="price">${money(p.price)}</span>
+          <button class="add" onclick="addToCart(${p.id})">+ Add</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function setCategory(category){
+  activeCategory = category;
+  document.querySelectorAll(".filter").forEach(b => {
+    b.classList.toggle("active", b.dataset.filter === category);
+  });
+  renderProducts();
+}
+
+function addToCart(id){
+  const existing = cart.find(i => i.id === id);
+  if(existing) existing.qty++;
+  else cart.push({id, qty:1});
+  saveCart();
+  showToast("Added to cart 🛒");
+}
+
+function saveCart(){
+  localStorage.setItem("etwenty_cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount(){
+  document.getElementById("cartCount").textContent =
+    cart.reduce((sum,i) => sum + i.qty, 0);
+}
+
+function openCart(){
+  renderCart();
+  document.getElementById("cartOverlay").classList.add("show");
+}
+
+function closeCart(){
+  document.getElementById("cartOverlay").classList.remove("show");
+}
+
+function closeOnOverlay(e){
+  if(e.target.id === "cartOverlay") closeCart();
+}
+
+function renderCart(){
+  const box = document.getElementById("cartItems");
+
+  if(!cart.length){
+    box.innerHTML = '<div class="empty">Your cart is empty 🍪<br><small>Add something delicious from the shop.</small></div>';
+    document.getElementById("cartTotal").textContent = "₹0";
+    return;
+  }
+
+  let total = 0;
+
+  box.innerHTML = cart.map(item => {
+    const p = products.find(x => x.id === item.id);
+    const subtotal = p.price * item.qty;
+    total += subtotal;
+
+    return `
+      <div class="cart-item">
+        <div>
+          <strong>${p.name}</strong><br>
+          <small>${money(p.price)} each</small>
+        </div>
+        <div class="qty">
+          <button onclick="changeQty(${p.id},-1)">−</button>
+          <strong>${item.qty}</strong>
+          <button onclick="changeQty(${p.id},1)">+</button>
+        </div>
+        <div>
+          <strong>${money(subtotal)}</strong><br>
+          <button class="remove" onclick="removeFromCart(${p.id})">Remove</button>
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  document.getElementById("cartTotal").textContent = money(total);
+}
+
+function changeQty(id, amount){
+  const item = cart.find(i => i.id === id);
+  if(!item) return;
+  item.qty += amount;
+  if(item.qty <= 0) cart = cart.filter(i => i.id !== id);
+  saveCart();
+  renderCart();
+}
+
+function removeFromCart(id){
+  cart = cart.filter(i => i.id !== id);
+  saveCart();
+  renderCart();
+}
+
+function placeOrder(){
+  if(!cart.length){
+    showToast("Your cart is empty");
+    return;
+  }
+
+  const name = document.getElementById("orderName").value.trim();
+  const phone = document.getElementById("orderPhone").value.trim();
+  const note = document.getElementById("orderNote").value.trim();
+
+  if(!name || !phone){
+    showToast("Please enter your name and phone");
+    return;
+  }
+
+  let total = 0;
+  let lines = cart.map(item => {
+    const p = products.find(x => x.id === item.id);
+    const subtotal = p.price * item.qty;
+    total += subtotal;
+    return `• ${p.name} x ${item.qty} = ${money(subtotal)}`;
+  });
+
+  const message =
+`Hello মিষ্টি মুহূর্ত! 🍰
+
+I would like to place an order.
+
+Customer: ${name}
+Phone: ${phone}
+
+ORDER:
+${lines.join("\n")}
+
+Total: ${money(total)}
+
+Delivery / Pickup Note:
+${note || "Not specified"}
+
+Thank you! ❤️`;
+
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
+}
+
+function sendCustomMessage(e){
+  e.preventDefault();
+
+  const name = document.getElementById("cName").value.trim();
+  const phone = document.getElementById("cPhone").value.trim();
+  const item = document.getElementById("cItem").value.trim();
+  const msg = document.getElementById("cMessage").value.trim();
+
+  const text =
+`Hello মিষ্টি মুহূর্ত! 🍰
+
+I want to ask about a custom order.
+
+Name: ${name}
+Phone: ${phone}
+Item: ${item}
+Details: ${msg || "Please contact me for details."}`;
+
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank");
+}
+
+function showToast(text){
+  const t = document.getElementById("toast");
+  t.textContent = text;
+  t.classList.add("show");
+  setTimeout(() => t.classList.remove("show"), 1800);
+}
+
+function toggleMobile(){
+  const links = document.querySelector(".nav-links");
+  if(getComputedStyle(links).display === "none"){
+    links.style.display = "flex";
+    links.style.position = "absolute";
+    links.style.top = "72px";
+    links.style.left = "15px";
+    links.style.right = "15px";
+    links.style.padding = "18px";
+    links.style.flexDirection = "column";
+    links.style.background = "#fff";
+    links.style.border = "1px solid var(--border)";
+    links.style.borderRadius = "18px";
+    links.style.boxShadow = "var(--shadow)";
+  }else{
+    links.style.display = "none";
+  }
+}
+
+renderProducts();
+updateCartCount();
+</script>
+</body>
+</html>
