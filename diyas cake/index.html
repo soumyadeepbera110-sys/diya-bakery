@@ -226,9 +226,20 @@ a{text-decoration:none;color:inherit}
 }
 @media(max-width:560px){
   .hero h1{font-size:50px}
-  .categories,.products{grid-template-columns:1fr}
+  .categories{grid-template-columns:1fr 1fr}
+  .products,.fast-food-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .section-head{display:block}
   .section-head h2{font-size:35px;margin-bottom:8px}
+  .product{border-radius:15px}
+  .product-img{height:125px}
+  .product-body{padding:10px}
+  .product-body h3{font-size:15px;line-height:1.2}
+  .product-body p{font-size:11px;line-height:1.35;min-height:30px;margin:4px 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .price{font-size:14px}
+  .add{padding:7px 8px;border-radius:9px;font-size:11px}
+  .tag{top:7px;left:7px;padding:4px 7px;font-size:9px}
+  .subcategory-title{margin:18px 0 5px}
+  .subcategory-title h2{font-size:24px}
   .story{padding:30px 22px}
   .story h2{font-size:36px}
   .story-points,.form-grid{grid-template-columns:1fr}
@@ -315,7 +326,7 @@ a{text-decoration:none;color:inherit}
       </a>
       <a class="category" href="#shop" onclick="setCategory('fast-food')">
         <div class="category-icon">🍕</div>
-        <div><h3>Fast Food</h3><p>Pizza & fresh sandwiches</p></div>
+        <div><h3>Fast Food</h3><p>Pizza, sandwiches & momos</p></div>
       </a>
     </div>
   </section>
@@ -336,7 +347,7 @@ a{text-decoration:none;color:inherit}
         <button class="filter" data-filter="chocolate" onclick="setCategory('chocolate')">Chocolates</button>
 <button class="filter" data-filter="fast-food" onclick="setCategory('fast-food')">Fast Food</button>
       </div>
-      <input class="search" id="search" type="search" placeholder="Search cakes, cookies, pizza..." oninput="renderProducts()">
+      <input class="search" id="search" type="search" placeholder="Search cakes, cookies, pizza, momos..." oninput="renderProducts()">
     </div>
 
     <div class="products" id="products"></div>
@@ -472,8 +483,14 @@ const products = [
   {
     id:3, name:"Red Velvet Cake", category:"cake", price:850,
     description:"Velvety cocoa sponge with smooth cream cheese frosting.",
-    image:"https://images.unsplash.com/photo-1586788224331-947f68671cf0?auto=format&fit=crop&w=700&q=85",
+    image:"RedVelvetCake.jpeg",
     tag:"Popular"
+  },
+  {
+    id:41, name:"Customisable Cake", category:"cake", price:299,
+    description:"A delicious cake jar you can customise with your favourite flavour, design and message.",
+    image:"Customisablecake.jpeg",
+    tag:"Customisable"
   },
   {
     id:4, name:"Choco Chip Cookies", category:"cookie", price:220,
@@ -514,157 +531,187 @@ const products = [
     {
       id:10, name:"Corn Cheese Pizza", category:"fast-food", subcategory:"Veg Pizza", price:130,
       description:"Sweet corn and melted cheese on a crispy, freshly baked pizza base.",
-      image:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=85",
+      image:"Corn&CheesePizza.jpeg",
       tag:"Veg"
     },
     {
       id:11, name:"Double Cheese Pizza", category:"fast-food", subcategory:"Veg Pizza", price:160,
       description:"A cheesy favourite topped with extra mozzarella for a rich, creamy bite.",
-      image:"https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=85&v=11",
       tag:"Veg"
     },
     {
       id:12, name:"Paneer Pizza", category:"fast-food", subcategory:"Veg Pizza", price:160,
       description:"Soft paneer cubes, cheese and tasty seasoning layered over a fresh pizza base.",
-      image:"https://images.unsplash.com/photo-1593560708920-61dd98c8a8a6?auto=format&fit=crop&w=800&q=85",
+      image:"panerpizza.jpeg",
       tag:"Veg"
     },
     {
       id:13, name:"Onion & Capsicum Pizza", category:"fast-food", subcategory:"Veg Pizza", price:119,
       description:"Crisp onion and capsicum with cheese for a simple, fresh and flavourful pizza.",
-      image:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=85",
+      image:"Onion&CapsicumPizza.jpeg",
       tag:"Veg"
     },
     {
       id:14, name:"Paneer Tikka Pizza", category:"fast-food", subcategory:"Veg Pizza", price:169,
       description:"Tandoori-style paneer tikka with cheese and a delicious smoky-spiced flavour.",
-      image:"https://images.unsplash.com/photo-1593560708920-61dd98c8a8a6?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?auto=format&fit=crop&w=800&q=85&v=14",
       tag:"Veg"
     },
     {
       id:15, name:"Mushroom Pizza", category:"fast-food", subcategory:"Veg Pizza", price:165,
       description:"Juicy mushrooms, cheese and herbs baked together on a golden pizza base.",
-      image:"https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=85&v=15",
       tag:"Veg"
     },
     {
       id:16, name:"Mushroom & Corn Pizza", category:"fast-food", subcategory:"Veg Pizza", price:175,
       description:"A tasty combination of mushrooms, sweet corn and melted cheese in every bite.",
-      image:"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=85",
+      image:"Mushroom&CornPizza.jpeg",
       tag:"Veg"
     },
     {
       id:17, name:"Chicken Pizza", category:"fast-food", subcategory:"Non-Veg Pizza", price:169,
       description:"Juicy chicken pieces with cheese and herbs on a freshly baked pizza base.",
-      image:"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=85&v=17",
       tag:"Non-Veg"
     },
     {
       id:18, name:"Chicken Corn Pizza", category:"fast-food", subcategory:"Non-Veg Pizza", price:180,
       description:"Tender chicken and sweet corn combined with cheese for a satisfying pizza.",
-      image:"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=85",
+      image:"ChickenCornPizza.jpeg",
       tag:"Non-Veg"
     },
     {
       id:19, name:"Chicken Tikka Pizza", category:"fast-food", subcategory:"Non-Veg Pizza", price:200,
       description:"Spiced chicken tikka, cheese and herbs baked together for a smoky flavour.",
-      image:"https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=85",
+      image:"ChickenTikkaPizza.jpeg",
       tag:"Non-Veg"
     },
     {
       id:20, name:"Chicken Double Cheese Pizza", category:"fast-food", subcategory:"Non-Veg Pizza", price:189,
       description:"Tender chicken topped with a generous double layer of melted cheese.",
-      image:"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=85",
+      image:"ChickenDoubleCheesePizza.jpeg",
       tag:"Non-Veg"
     },
     {
-      id:21, name:"Chicken Burst Special Pizza", category:"fast-food", subcategory:"Non-Veg Pizza", price:219,
+      id:21, name:"Cheese Burst Chicken Pizza", category:"fast-food", subcategory:"Non-Veg Pizza", price:219,
       description:"A loaded special pizza with seasoned chicken, rich cheese and bold flavour.",
-      image:"https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=800&q=85",
+      image:"CheeseBurstChickenPizza.jpeg",
       tag:"Special"
     },
     {
       id:22, name:"Cheese Corn Sandwich", category:"fast-food", subcategory:"Sandwich", price:70,
       description:"Creamy cheese and sweet corn filling toasted between fresh sandwich bread.",
-      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85&v=22",
       tag:"Veg"
     },
     {
       id:23, name:"Loaded Vegetable Sandwich", category:"fast-food", subcategory:"Sandwich", price:70,
       description:"A generous mix of fresh vegetables and creamy filling in toasted bread.",
-      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85&v=23",
       tag:"Veg"
     },
     {
       id:24, name:"Chicken Cheese Sandwich", category:"fast-food", subcategory:"Sandwich", price:100,
       description:"Tender chicken and melted cheese packed into a warm, toasted sandwich.",
-      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1539252554453-80ab65ce3586?auto=format&fit=crop&w=800&q=85&v=24",
       tag:"Non-Veg"
     },
     {
       id:25, name:"Classic Vegetable Sandwich", category:"fast-food", subcategory:"Sandwich", price:90,
       description:"A classic combination of fresh vegetables, seasoning and creamy spread.",
-      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85",
+      image:"ClassicVegetableSandwich.jpeg",
       tag:"Veg"
     },
     {
       id:26, name:"Aloo Masala Sandwich", category:"fast-food", subcategory:"Sandwich", price:50,
       description:"Spiced potato masala filling toasted inside soft, fresh sandwich bread.",
-      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85&v=26",
       tag:"Veg"
     },
     {
       id:27, name:"Aloo Cheese Sandwich", category:"fast-food", subcategory:"Sandwich", price:70,
       description:"Comforting potato masala paired with melted cheese in a toasted sandwich.",
-      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85&v=27",
       tag:"Veg"
     },
     {
       id:28, name:"Corn Mayo Sandwich", category:"fast-food", subcategory:"Sandwich", price:60,
       description:"Sweet corn mixed with creamy mayonnaise and served in lightly toasted bread.",
-      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1539252554453-80ab65ce3586?auto=format&fit=crop&w=800&q=85&v=28",
       tag:"Veg"
     },
     {
       id:29, name:"Corn Cheese Grill", category:"fast-food", subcategory:"Sandwich", price:120,
       description:"Grilled bread filled with sweet corn and melted cheese for a crisp finish.",
-      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85&v=29",
       tag:"Veg"
     },
     {
       id:30, name:"Paneer Sandwich", category:"fast-food", subcategory:"Sandwich", price:60,
       description:"Soft paneer with fresh vegetables and seasoning in a toasted sandwich.",
-      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85&v=30",
       tag:"Veg"
     },
     {
       id:31, name:"Paneer Cheese Sandwich", category:"fast-food", subcategory:"Sandwich", price:70,
       description:"Paneer and melted cheese come together in this rich and satisfying sandwich.",
-      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1539252554453-80ab65ce3586?auto=format&fit=crop&w=800&q=85&v=31",
       tag:"Veg"
     },
     {
       id:32, name:"Chicken Mayonnaise Sandwich", category:"fast-food", subcategory:"Sandwich", price:100,
       description:"Tender chicken mixed with creamy mayonnaise and served in soft toasted bread.",
-      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=85&v=32",
       tag:"Non-Veg"
     },
     {
       id:33, name:"Chicken Tikka Grilled Sandwich", category:"fast-food", subcategory:"Sandwich", price:120,
       description:"Grilled sandwich filled with spicy chicken tikka and a creamy cheesy touch.",
-      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85&v=33",
       tag:"Non-Veg"
     },
     {
       id:34, name:"Veg Club Sandwich", category:"fast-food", subcategory:"Sandwich", price:60,
       description:"A fresh multi-layered sandwich packed with vegetables and creamy spread.",
-      image:"https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85&v=34",
       tag:"Veg"
     },
     {
       id:35, name:"Cheese Chilli Sandwich", category:"fast-food", subcategory:"Sandwich", price:40,
       description:"Melted cheese and mild chilli bring a simple spicy kick to toasted bread.",
-      image:"https://images.unsplash.com/photo-1553909489-cd47e0907980?auto=format&fit=crop&w=800&q=85",
+      image:"https://images.unsplash.com/photo-1539252554453-80ab65ce3586?auto=format&fit=crop&w=800&q=85&v=35",
+      tag:"Veg"
+    },
+    {
+      id:36, name:"Chicken Momo + Soup", category:"fast-food", subcategory:"Momos", price:60,
+      description:"Juicy chicken momos served with a warm bowl of comforting soup.",
+      image:"https://images.unsplash.com/photo-1625220194771-7ebdea0b70b9?auto=format&fit=crop&w=800&q=85",
+      tag:"Non-Veg"
+    },
+    {
+      id:37, name:"Paneer Momo + Soup", category:"fast-food", subcategory:"Momos", price:60,
+      description:"Soft paneer-filled momos served with hot, flavourful soup.",
+      image:"PaneerMomoSoup.jpeg",
+      tag:"Veg"
+    },
+    {
+      id:38, name:"Veg Momo + Soup", category:"fast-food", subcategory:"Momos", price:50,
+      description:"Fresh vegetable momos paired with a warm and tasty soup.",
+      image:"VegMomo.jpeg",
+      tag:"Veg"
+    },
+    {
+      id:39, name:"Chicken Cheese Momo + Soup", category:"fast-food", subcategory:"Momos", price:75,
+      description:"Chicken and cheese-filled momos served with hot soup.",
+      image:"ChickenCheeseMomo.jpeg",
+      tag:"Special"
+    },
+    {
+      id:40, name:"Veg Cheese Momo + Soup", category:"fast-food", subcategory:"Momos", price:65,
+      description:"Cheesy vegetable momos served with a comforting bowl of soup.",
+      image:"vegcheesemomos.jpeg",
       tag:"Veg"
     },
 ];
@@ -708,7 +755,7 @@ function renderProducts(){
   `;
 
   if(activeCategory === "fast-food"){
-    const groups = ["Veg Pizza", "Non-Veg Pizza", "Sandwich"];
+    const groups = ["Veg Pizza", "Non-Veg Pizza", "Sandwich", "Momos"];
     box.innerHTML = groups.map(group => {
       const items = list.filter(p => p.subcategory === group);
       if(!items.length) return "";
