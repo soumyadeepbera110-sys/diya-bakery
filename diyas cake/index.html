@@ -6,20 +6,26 @@
 <meta name="description" content="মিষ্টি মুহূর্ত - Cookies, cakes and homemade chocolates.">
 <title>মিষ্টি মুহূর্ত | Sweetness Made With Love</title>
 
+<meta name="theme-color" content="#0f2342">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600;700&family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fffaf7;
-  --card:#ffffff;
-  --text:#2b2020;
-  --muted:#786b68;
-  --primary:#8f3f5f;
-  --primary-dark:#6e2945;
-  --accent:#f2c6a0;
-  --cream:#fff0e7;
-  --gold:#d59b4a;
-  --border:#eaded8;
-  --shadow:0 18px 50px rgba(73,35,29,.10);
+  --bg:#f1f7fc;
+  --card:rgba(255,255,255,.84);
+  --text:#112240;
+  --muted:#5b6f89;
+  --primary:#2b6cb0;
+  --primary-dark:#1c4f87;
+  --accent:#bfe1f7;
+  --cream:#e4f1fb;
+  --gold:#9fb8d4;
+  --berry:#b83b5e;
+  --border:#d2e3f2;
+  --shadow:0 18px 50px rgba(24,62,112,.16);
   --radius:24px;
+  --serif:"Playfair Display",Georgia,serif;
 }
 *{box-sizing:border-box;margin:0;padding:0;min-width:0}
 html{scroll-behavior:smooth;overflow-x:hidden}
@@ -216,6 +222,75 @@ a{text-decoration:none;color:inherit}
 }
 .toast.show{opacity:1;transform:translate(-50%,0)}
 
+/* ===== WINTER THEME ❄ ===== */
+body{
+  font-family:Inter,"Hind Siliguri",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:radial-gradient(900px 500px at 90% -5%,#d9eafa,transparent 60%),radial-gradient(800px 500px at -10% 30%,#e6f2fc,transparent 60%),linear-gradient(180deg,#f5faff,#e9f2fa);
+  background-color:var(--bg);
+}
+.hero h1,.section-head h2,.product-body h3,.story h2,.info-card h3,.contact-form h3,.modal-head h2,.subcategory-title h2{font-family:var(--serif)}
+.hero h1{letter-spacing:-2px}
+.header{background:rgba(244,249,254,.78);backdrop-filter:blur(18px) saturate(150%);border-bottom:1px solid rgba(178,208,235,.7)}
+.logo-mark{background:linear-gradient(135deg,#4a90d0,#1c4f87);box-shadow:0 8px 20px rgba(28,79,135,.3)}
+.nav-links{color:#34506f}
+.cart-btn,.add{background:linear-gradient(135deg,#112240,#24467a)}
+.add:hover{background:var(--primary)}
+.cart-count{background:var(--accent)}
+.badge{background:rgba(255,255,255,.75);border:1px solid var(--border)}
+.hero h1 em{background:linear-gradient(120deg,#2b6cb0,#74b7ea);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn-primary{background:linear-gradient(135deg,#3a82c8,#1c4f87);box-shadow:0 12px 25px rgba(28,79,135,.28)}
+.btn-primary:hover{background:linear-gradient(135deg,#2b6cb0,#173f6c)}
+.btn-light{background:rgba(255,255,255,.8);color:var(--primary-dark)}
+.hero-photo{border:6px solid rgba(255,255,255,.85);box-shadow:var(--shadow),inset 0 0 60px rgba(222,240,253,.5)}
+.hero-photo::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,rgba(214,236,252,.18),rgba(17,34,64,.22))}
+.hero-card{z-index:2}
+.hero-card,.tag{background:rgba(255,255,255,.84);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.9)}
+.tag{z-index:2}
+.category,.product,.info-card,.contact-form{background:var(--card);border-color:var(--border);box-shadow:0 8px 28px rgba(24,62,112,.08)}
+.category:hover,.product:hover{box-shadow:var(--shadow);border-color:#a9cdea}
+.category-icon,.info-icon{background:linear-gradient(135deg,#e9f4fd,#cfe6f8)}
+.section-head h2::after{content:" ❄";font-size:.45em;color:#9fcbec;vertical-align:middle}
+.filter{background:rgba(255,255,255,.85);color:#3d5878}
+.filter.active,.filter:hover{background:linear-gradient(135deg,#3a82c8,#1c4f87);color:#fff;border-color:transparent}
+.search{background:rgba(255,255,255,.92)}
+.search:focus,.field input:focus,.field textarea:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(43,108,176,.14)}
+.story{background:radial-gradient(500px 300px at 90% 0%,rgba(120,180,235,.28),transparent 70%),linear-gradient(135deg,#0c1d39,#1b3a68);box-shadow:0 30px 70px rgba(12,29,57,.3)}
+.story .badge{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.18);color:#cfe6fa}
+.story p{color:#c6d9ec}
+.point{border-color:rgba(255,255,255,.16);background:rgba(255,255,255,.06)}
+.point span{color:#a5bfd9}
+.story-img{border:4px solid rgba(255,255,255,.18)}
+.footer{background:linear-gradient(180deg,#0f2342,#081426)}
+.footer p{color:#9db4cf}
+.social a{border-color:#2e4a70;color:#d3e4f6}
+.social a:hover{background:rgba(255,255,255,.08)}
+.overlay{background:rgba(8,20,40,.55);backdrop-filter:blur(4px)}
+.modal{background:rgba(255,255,255,.97)}
+.close{background:#e6f0fa}
+.remove{color:var(--berry)}
+.toast{background:#112240}
+
+/* product cards: sizes, tiles, aligned bottoms */
+.product{display:flex;flex-direction:column}
+.product-body{flex:1;display:flex;flex-direction:column}
+.product-bottom{margin-top:auto}
+.product-img.tile{display:grid;place-items:center;font-size:56px;background:linear-gradient(145deg,var(--c1),var(--c2))}
+.product-img.tile::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 20% 25%,rgba(255,255,255,.6) 0 3px,transparent 4px),radial-gradient(circle at 78% 20%,rgba(255,255,255,.5) 0 2px,transparent 3px),radial-gradient(circle at 62% 76%,rgba(255,255,255,.45) 0 3px,transparent 4px),radial-gradient(circle at 28% 80%,rgba(255,255,255,.4) 0 2px,transparent 3px)}
+.sizes{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-bottom:6px}
+.size-pill{border:1px solid var(--border);background:#fff;border-radius:10px;padding:6px 0;font-size:12px;font-weight:800;color:var(--muted)}
+.size-pill:hover{border-color:var(--primary);color:var(--primary)}
+.size-pill.active{background:var(--primary);border-color:var(--primary);color:#fff}
+.size-detail{font-size:11px;color:var(--muted);margin-bottom:10px}
+.subcategory-title{grid-column:1/-1;margin:26px 0 4px}
+.subcategory-title h2{font-size:28px}
+.fast-food-grid{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+
+/* falling snow */
+.snow{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.flake{position:absolute;top:-30px;color:#a7d0ee;animation:fall linear infinite;will-change:transform}
+@keyframes fall{to{transform:translate3d(var(--dx),112vh,0) rotate(300deg)}}
+@media(prefers-reduced-motion:reduce){.snow{display:none}}
+
 @media(max-width:850px){
   .nav-links{display:none}
   .menu-btn{display:block}
@@ -361,6 +436,11 @@ a{text-decoration:none;color:inherit}
     scroll-margin-top:80px;
   }
 }
+@media(max-width:560px){
+  .product-img.tile{font-size:38px}
+  .size-pill{font-size:10px;padding:5px 0;border-radius:8px}
+  .size-detail{font-size:10px;margin-bottom:8px}
+}
 </style>
 </head>
 
@@ -498,7 +578,7 @@ a{text-decoration:none;color:inherit}
         </div>
         <div class="info-row">
           <div class="info-icon">📞</div>
-          <div><strong>Phone / WhatsApp</strong><small>+91 XXXXXXXXXX</small></div>
+          <div><strong>Phone / WhatsApp</strong><small>+91 9332009518</small></div>
         </div>
         <div class="info-row">
           <div class="info-icon">🕐</div>
@@ -527,7 +607,7 @@ a{text-decoration:none;color:inherit}
 <footer class="footer">
   <div class="footer-inner">
     <div>
-      <strong>🍰 মিষ্টি মুহূর্ত</strong><br><span style="color:#b9aeab;font-size:13px">Owner: Diya</span>
+      <strong>🍰 মিষ্টি মুহূর্ত</strong><br><span style="color:#9db4cf;font-size:13px">Owner: Diya</span>
       <p>Sweetness made with love by Diya.</p>
     </div>
     <div class="social">
@@ -574,6 +654,15 @@ a{text-decoration:none;color:inherit}
 
 const WHATSAPP_NUMBER = "9332009518"; // <-- CHANGE THIS TO YOUR REAL WHATSAPP NUMBER
 
+/* Cake sizes from the price list. Use cakeSizes([½lb, 1lb, 1.5lb, 2lb]) for any new flavour. */
+const SIZE_LABELS = [
+  {label:"½ lb",   detail:"250–300 gm"},
+  {label:"1 lb",   detail:"500–600 gm"},
+  {label:"1.5 lb", detail:"750–900 gm"},
+  {label:"2 lb",   detail:"1 kg"}
+];
+const cakeSizes = prices => SIZE_LABELS.map((s,i) => ({...s, price:prices[i]}));
+
 const products = [
   {
     id:1, name:"Classic Chocolate Cake", category:"cake", price:650,
@@ -598,6 +687,66 @@ const products = [
     description:"A delicious cake jar you can customise with your favourite flavour, design and message.",
     image:"Customisablecake.jpeg",
     tag:"Customisable"
+  },
+  {
+    id:42, name:"Vanilla Cake", category:"cake", price:250, sizes:cakeSizes([250,400,550,750]),
+    image:"VanillaCake.jpeg", c1:"#fff4d9", c2:"#f3d78f", tag:"½–2 lb",
+    description:"Soft, classic vanilla sponge with light whipped cream."
+  },
+  {
+    id:43, name:"Chocolate Cake", category:"cake", price:300, sizes:cakeSizes([300,500,700,900]),
+    image:"ChocolateCake.jpeg", c1:"#c19a7e", c2:"#6b4430", tag:"½–2 lb",
+    description:"Rich, moist chocolate sponge with chocolate cream."
+  },
+  {
+    id:44, name:"Pineapple Cake", category:"cake", price:280, sizes:cakeSizes([280,400,550,750]),
+    image:"PineappleCake.jpeg", c1:"#fff3b0", c2:"#f5c84c", tag:"½–2 lb",
+    description:"Fluffy sponge layered with pineapple cream and juicy fruit."
+  },
+  {
+    id:45, name:"Black Forest Cake", category:"cake", price:280, sizes:cakeSizes([280,450,650,850]),
+    image:"BlackForestCake.jpeg", c1:"#a8626f", c2:"#3d1f2a", tag:"½–2 lb",
+    description:"Chocolate sponge, whipped cream and cherries with chocolate shavings."
+  },
+  {
+    id:46, name:"White Forest Cake", category:"cake", price:280, sizes:cakeSizes([280,450,650,850]),
+    image:"WhiteForestCake.jpeg", c1:"#ffffff", c2:"#cfe4f6", tag:"½–2 lb",
+    description:"Light vanilla sponge with white chocolate shavings and cream."
+  },
+  {
+    id:47, name:"Butterscotch Cake", category:"cake", price:280, sizes:cakeSizes([280,450,650,850]),
+    image:"ButterscotchCake.jpeg", c1:"#f9d894", c2:"#d99a3d", tag:"½–2 lb",
+    description:"Buttery caramel sponge with crunchy butterscotch praline."
+  },
+  {
+    id:48, name:"Strawberry Cake", category:"cake", price:280, sizes:cakeSizes([280,450,650,850]),
+    image:"StrawberryCake.jpeg", c1:"#ffd6e0", c2:"#f08aa6", tag:"½–2 lb",
+    description:"Soft sponge with fresh strawberry cream."
+  },
+  {
+    id:49, name:"Mango Cake", category:"cake", price:280, sizes:cakeSizes([280,450,650,850]),
+    image:"MangoCake.jpeg", c1:"#ffe69a", c2:"#ffab3d", tag:"½–2 lb",
+    description:"Fresh mango cream over a light, fluffy sponge."
+  },
+  {
+    id:50, name:"Oreo Cake", category:"cake", price:350, sizes:cakeSizes([350,550,750,1000]),
+    image:"OreoCake.jpeg", c1:"#dfe3e9", c2:"#3a3f4a", tag:"½–2 lb",
+    description:"Cookies-and-cream sponge with crushed Oreo crunch."
+  },
+  {
+    id:51, name:"Chocolate Truffle Cake", category:"cake", price:350, sizes:cakeSizes([350,600,800,1100]),
+    image:"ChocolateTruffleCake.jpeg", c1:"#a06a50", c2:"#3a2118", tag:"½–2 lb",
+    description:"Dense, silky chocolate truffle cream on moist chocolate sponge."
+  },
+  {
+    id:52, name:"Bento Cake", category:"cake", price:150,
+    image:"BentoCake.jpeg", c1:"#ffdcea", c2:"#f4a9c6", tag:"Mini",
+    description:"A cute mini cake, perfect for gifting or a little celebration."
+  },
+  {
+    id:53, name:"Chocolate Bento Cake", category:"cake", price:170,
+    image:"ChocolateBentoCake.jpeg", c1:"#b58468", c2:"#5a3a2b", tag:"Mini",
+    description:"A mini chocolate cake in a cute bento box, made for gifting."
   },
   {
     id:4, name:"Choco Chip Cookies", category:"cookie", price:220,
@@ -825,6 +974,12 @@ const products = [
 
 let activeCategory = "all";
 let cart = JSON.parse(localStorage.getItem("etwenty_cart") || "[]");
+const selectedSize = {};
+const unitPrice = (p, i) => p.sizes ? p.sizes[i || 0].price : p.price;
+const lineName = (p, i) => p.sizes ? `${p.name} (${p.sizes[i || 0].label})` : p.name;
+const keyOf = (id, size) => size == null ? String(id) : id + ":" + size;
+// drop stale / invalid saved cart lines
+cart = cart.filter(i => { const p = products.find(x => x.id === i.id); return p && (p.sizes ? p.sizes[i.size] : i.size == null); });
 
 function money(n){
   return "₹" + Number(n).toLocaleString("en-IN");
@@ -845,21 +1000,30 @@ function renderProducts(){
     return;
   }
 
-  const card = p => `
-    <article class="product">
-      <div class="product-img" style="background-image:url('${p.image}')">
-        <span class="tag">${p.tag || "Fresh"}</span>
-      </div>
+  const card = p => {
+    const sel = selectedSize[p.id] || 0;
+    const img = p.image
+      ? `<div class="product-img" style="background-image:url('${p.image}')"><span class="tag">${p.tag || "Fresh"}</span></div>`
+      : `<div class="product-img tile" style="--c1:${p.c1};--c2:${p.c2}"><span class="tag">${p.tag || "Fresh"}</span>${p.emoji || "🎂"}</div>`;
+    const picker = p.sizes ? `
+        <div class="sizes" role="group" aria-label="Choose size">
+          ${p.sizes.map((s,i) => `<button class="size-pill${i === sel ? " active" : ""}" onclick="pickSize(${p.id},${i})">${s.label}</button>`).join("")}
+        </div>
+        <div class="size-detail" id="sd-${p.id}">${p.sizes[sel].detail}</div>` : "";
+    return `
+    <article class="product" id="card-${p.id}">
+      ${img}
       <div class="product-body">
         <h3>${p.name}</h3>
         <p>${p.description}</p>
+        ${picker}
         <div class="product-bottom">
-          <span class="price">${money(p.price)}</span>
+          <span class="price" id="price-${p.id}">${money(unitPrice(p, sel))}</span>
           <button class="add" onclick="addToCart(${p.id})">+ Add</button>
         </div>
       </div>
-    </article>
-  `;
+    </article>`;
+  };
 
   if(activeCategory === "fast-food"){
     const groups = ["Veg Pizza", "Non-Veg Pizza", "Sandwich", "Momos"];
@@ -888,10 +1052,20 @@ function setCategory(category){
   renderProducts();
 }
 
+function pickSize(id, i){
+  selectedSize[id] = i;
+  const p = products.find(x => x.id === id);
+  document.getElementById("price-" + id).textContent = money(unitPrice(p, i));
+  document.getElementById("sd-" + id).textContent = p.sizes[i].detail;
+  document.querySelectorAll("#card-" + id + " .size-pill").forEach((b,k) => b.classList.toggle("active", k === i));
+}
+
 function addToCart(id){
-  const existing = cart.find(i => i.id === id);
+  const p = products.find(x => x.id === id);
+  const size = p.sizes ? (selectedSize[id] || 0) : null;
+  const existing = cart.find(i => i.id === id && (i.size ?? null) === size);
   if(existing) existing.qty++;
-  else cart.push({id, qty:1});
+  else cart.push({id, size, qty:1});
   saveCart();
   showToast("Added to cart 🛒");
 }
@@ -932,23 +1106,23 @@ function renderCart(){
 
   box.innerHTML = cart.map(item => {
     const p = products.find(x => x.id === item.id);
-    const subtotal = p.price * item.qty;
+    const subtotal = unitPrice(p, item.size) * item.qty;
     total += subtotal;
 
     return `
       <div class="cart-item">
         <div>
-          <strong>${p.name}</strong><br>
-          <small>${money(p.price)} each</small>
+          <strong>${lineName(p, item.size)}</strong><br>
+          <small>${money(unitPrice(p, item.size))} each</small>
         </div>
         <div class="qty">
-          <button onclick="changeQty(${p.id},-1)">−</button>
+          <button onclick="changeQty('${keyOf(p.id, item.size)}',-1)">−</button>
           <strong>${item.qty}</strong>
-          <button onclick="changeQty(${p.id},1)">+</button>
+          <button onclick="changeQty('${keyOf(p.id, item.size)}',1)">+</button>
         </div>
         <div>
           <strong>${money(subtotal)}</strong><br>
-          <button class="remove" onclick="removeFromCart(${p.id})">Remove</button>
+          <button class="remove" onclick="removeFromCart('${keyOf(p.id, item.size)}')">Remove</button>
         </div>
       </div>
     `;
@@ -957,17 +1131,17 @@ function renderCart(){
   document.getElementById("cartTotal").textContent = money(total);
 }
 
-function changeQty(id, amount){
-  const item = cart.find(i => i.id === id);
+function changeQty(key, amount){
+  const item = cart.find(i => keyOf(i.id, i.size ?? null) === key);
   if(!item) return;
   item.qty += amount;
-  if(item.qty <= 0) cart = cart.filter(i => i.id !== id);
+  if(item.qty <= 0) cart = cart.filter(i => i !== item);
   saveCart();
   renderCart();
 }
 
-function removeFromCart(id){
-  cart = cart.filter(i => i.id !== id);
+function removeFromCart(key){
+  cart = cart.filter(i => keyOf(i.id, i.size ?? null) !== key);
   saveCart();
   renderCart();
 }
@@ -990,9 +1164,9 @@ function placeOrder(){
   let total = 0;
   let lines = cart.map(item => {
     const p = products.find(x => x.id === item.id);
-    const subtotal = p.price * item.qty;
+    const subtotal = unitPrice(p, item.size) * item.qty;
     total += subtotal;
-    return `• ${p.name} x ${item.qty} = ${money(subtotal)}`;
+    return `• ${lineName(p, item.size)} x ${item.qty} = ${money(subtotal)}`;
   });
 
   const message =
@@ -1054,7 +1228,7 @@ function toggleMobile(){
     links.style.right = "15px";
     links.style.padding = "18px";
     links.style.flexDirection = "column";
-    links.style.background = "#fff";
+    links.style.background = "rgba(244,249,254,.97)";
     links.style.border = "1px solid var(--border)";
     links.style.borderRadius = "18px";
     links.style.boxShadow = "var(--shadow)";
@@ -1062,6 +1236,28 @@ function toggleMobile(){
     links.style.display = "none";
   }
 }
+
+(function snow(){
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const box = document.createElement("div");
+  box.className = "snow";
+  box.setAttribute("aria-hidden","true");
+  const glyphs = ["❄","❅","❆"];
+  const n = window.innerWidth < 600 ? 14 : 28;
+  for(let i = 0; i < n; i++){
+    const f = document.createElement("span");
+    f.className = "flake";
+    f.textContent = glyphs[i % 3];
+    f.style.left = (Math.random() * 100) + "vw";
+    f.style.fontSize = (10 + Math.random() * 16) + "px";
+    f.style.opacity = (0.35 + Math.random() * 0.45).toFixed(2);
+    f.style.animationDuration = (9 + Math.random() * 12) + "s";
+    f.style.animationDelay = (-Math.random() * 20) + "s";
+    f.style.setProperty("--dx", (Math.random() * 160 - 80) + "px");
+    box.appendChild(f);
+  }
+  document.body.appendChild(box);
+})();
 
 renderProducts();
 updateCartCount();
